@@ -118,7 +118,7 @@ def sample_balance_sheet(users_count=10, lb=10, ub=10000, max_count=10000, rng=n
     return BalanceSheet(users, expenses, [])
 
 
-def get_residuals(bs: BalanceSheet, settles: list[Transfer]) -> BalanceSheet:
+def get_residuals(bs: BalanceSheet, settles: list[Transfer]) -> list[float]:
     balances = bs.balances.copy()
     for settle in settles:
         balances[settle.paid_by] += settle.amount
